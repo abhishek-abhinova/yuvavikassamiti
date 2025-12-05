@@ -1,64 +1,126 @@
-// Initialize AOS
-AOS.init({
-    duration: 1000,
-    easing: 'ease-in-out',
-    once: true,
-    mirror: false
+// Premium Page Loader
+window.addEventListener('load', () => {
+    const loader = document.getElementById('pageLoader');
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }, 1000);
 });
 
-// Mobile Navigation
+// Initialize AOS with premium settings
+AOS.init({
+    duration: 800,
+    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    once: true,
+    mirror: false,
+    offset: 50,
+    delay: 100
+});
+
+// Premium Mobile Navigation
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
+const body = document.body;
 
-hamburger.addEventListener('click', () => {
+hamburger.addEventListener('click', (e) => {
+    e.preventDefault();
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+    body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 });
 
 // Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.style.overflow = '';
+    });
+});
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.style.overflow = '';
     }
 });
 
-// Initialize Swiper
+// Premium Navbar scroll effect with throttling
+let ticking = false;
+
+function updateNavbar() {
+    const navbar = document.querySelector('.navbar');
+    const scrolled = window.pageYOffset;
+    
+    if (scrolled > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+        navbar.style.backdropFilter = 'blur(20px)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = '0 1px 20px rgba(0,0,0,0.05)';
+        navbar.style.backdropFilter = 'blur(10px)';
+    }
+    
+    ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(updateNavbar);
+        ticking = true;
+    }
+}, { passive: true });
+
+// Initialize Premium Swiper
 const swiper = new Swiper('.projectSwiper', {
     slidesPerView: 1,
-    spaceBetween: 30,
+    spaceBetween: 24,
     loop: true,
+    speed: 600,
+    effect: 'slide',
     autoplay: {
-        delay: 5000,
+        delay: 4000,
         disableOnInteraction: false,
+        pauseOnMouseEnter: true,
     },
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
+        dynamicBullets: true,
     },
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-        640: {
+        480: {
             slidesPerView: 1,
+            spaceBetween: 20,
         },
         768: {
             slidesPerView: 2,
+            spaceBetween: 24,
         },
         1024: {
             slidesPerView: 3,
+            spaceBetween: 30,
+        },
+    },
+    on: {
+        slideChange: function () {
+            // Add premium slide transition effects
+            this.slides.forEach((slide, index) => {
+                if (index === this.activeIndex) {
+                    slide.style.transform = 'scale(1)';
+                } else {
+                    slide.style.transform = 'scale(0.95)';
+                }
+            });
         },
     },
 });
@@ -421,49 +483,73 @@ function openProjectModal(projectId) {
     }
 }
 
-// Scroll to top functionality
+// Premium scroll to top functionality
 function addScrollToTop() {
     const scrollBtn = document.createElement('button');
     scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     scrollBtn.className = 'scroll-to-top';
+    scrollBtn.setAttribute('aria-label', 'Scroll to top');
     scrollBtn.style.cssText = `
         position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: var(--gradient-primary);
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border: none;
         border-radius: 50%;
         color: white;
         font-size: 1.2rem;
         cursor: pointer;
-        box-shadow: var(--shadow-medium);
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     `;
     
     document.body.appendChild(scrollBtn);
     
-    // Show/hide scroll button
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            scrollBtn.style.opacity = '1';
-            scrollBtn.style.visibility = 'visible';
-        } else {
-            scrollBtn.style.opacity = '0';
-            scrollBtn.style.visibility = 'hidden';
-        }
-    });
+    let scrollTicking = false;
     
-    // Scroll to top
+    // Show/hide scroll button with throttling
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            requestAnimationFrame(() => {
+                if (window.pageYOffset > 400) {
+                    scrollBtn.style.opacity = '1';
+                    scrollBtn.style.visibility = 'visible';
+                    scrollBtn.style.transform = 'scale(1)';
+                } else {
+                    scrollBtn.style.opacity = '0';
+                    scrollBtn.style.visibility = 'hidden';
+                    scrollBtn.style.transform = 'scale(0.8)';
+                }
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    }, { passive: true });
+    
+    // Premium scroll to top with smooth animation
     scrollBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
+    });
+    
+    // Hover effects
+    scrollBtn.addEventListener('mouseenter', () => {
+        scrollBtn.style.transform = 'scale(1.1)';
+        scrollBtn.style.boxShadow = '0 12px 40px rgba(102, 126, 234, 0.4)';
+    });
+    
+    scrollBtn.addEventListener('mouseleave', () => {
+        scrollBtn.style.transform = 'scale(1)';
+        scrollBtn.style.boxShadow = '0 8px 30px rgba(102, 126, 234, 0.3)';
     });
 }
 
