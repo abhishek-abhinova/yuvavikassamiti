@@ -1,0 +1,459 @@
+/* About Page Specific Styles */
+
+.page-header {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://via.placeholder.com/1920x600/1a4b84/ffffff?text=About+Us+Background') center/cover;
+    opacity: 0.1;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+/* About Organization */
+.about-org {
+    padding: 100px 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: var(--royal-blue);
+    margin-bottom: 30px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: var(--dark-gray);
+}
+
+.about-highlights {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: var(--soft-gray);
+    border-radius: 15px;
+    flex: 1;
+}
+
+.highlight-item i {
+    font-size: 2rem;
+    color: var(--emerald-green);
+}
+
+.highlight-item h4 {
+    color: var(--royal-blue);
+    margin-bottom: 5px;
+}
+
+.highlight-item p {
+    color: var(--dark-gray);
+    font-weight: 600;
+    margin: 0;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+}
+
+/* General Information */
+.general-info {
+    padding: 100px 0;
+    background: var(--soft-gray);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.info-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(26, 75, 132, 0.1);
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.info-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.info-card h4 {
+    color: var(--royal-blue);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+/* Legal Registration */
+.legal-registration {
+    padding: 100px 0;
+}
+
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.badge-item {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0.1;
+    transition: left 0.3s ease;
+}
+
+.badge-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--emerald-green);
+}
+
+.badge-item:hover::before {
+    left: 0;
+}
+
+.badge-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.badge-item h4 {
+    color: var(--royal-blue);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.badge-item p {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Organizational Structure */
+.org-structure {
+    padding: 100px 0;
+    background: var(--soft-gray);
+}
+
+.structure-chart {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.structure-level {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.structure-level::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: var(--emerald-green);
+}
+
+.structure-level:last-child::after {
+    display: none;
+}
+
+.structure-item {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    min-width: 180px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.structure-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.structure-item::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: var(--emerald-green);
+}
+
+.level-1 .structure-item::before {
+    display: none;
+}
+
+.structure-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.structure-item h4 {
+    color: var(--royal-blue);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Mission Vision Values */
+.mvv-section {
+    padding: 100px 0;
+}
+
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.mvv-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    border: 1px solid rgba(26, 75, 132, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mvv-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.mvv-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    color: white;
+    font-size: 2rem;
+}
+
+.mvv-card h3 {
+    color: var(--royal-blue);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.mvv-card p {
+    color: var(--dark-gray);
+    line-height: 1.8;
+}
+
+.mvv-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.mvv-card ul li {
+    color: var(--dark-gray);
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.mvv-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--emerald-green);
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .page-header p {
+        font-size: 1.1rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-highlights {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .badges-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .structure-level {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .structure-level::after {
+        width: 20px;
+        height: 2px;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+    }
+    
+    .structure-item::before {
+        width: 20px;
+        height: 2px;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+    }
+    
+    .mvv-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        padding: 100px 0 60px;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .about-text h2 {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .mvv-card {
+        padding: 30px 20px;
+    }
+}

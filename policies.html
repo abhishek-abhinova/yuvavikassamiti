@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policies - Yuva Vikas Samiti</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/policies.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>Yuva Vikas Samiti</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="agencies.html" class="nav-link">Network</a></li>
+                <li><a href="policies.html" class="nav-link active">Policies</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="donation.html" class="nav-link donate-btn">Donate</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Our Policies</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Transparent governance and ethical practices guide our work</p>
+        </div>
+    </section>
+
+    <!-- Policies Grid -->
+    <section class="policies-section">
+        <div class="container">
+            <div class="policies-grid">
+                <!-- HR Policy -->
+                <div class="policy-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="policy-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>HR Policy</h3>
+                    <p>Comprehensive human resource management guidelines ensuring fair employment practices, professional development, and workplace equality.</p>
+                    <div class="policy-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Equal Opportunity Employment</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Professional Development</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Performance Management</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="openPolicyModal('hr')">View Details</button>
+                </div>
+
+                <!-- Gender Policy -->
+                <div class="policy-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="policy-icon">
+                        <i class="fas fa-venus-mars"></i>
+                    </div>
+                    <h3>Gender Policy</h3>
+                    <p>Commitment to gender equality and women's empowerment in all our programs and organizational practices.</p>
+                    <div class="policy-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Gender Mainstreaming</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Women's Leadership</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Safe Workplace</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="openPolicyModal('gender')">View Details</button>
+                </div>
+
+                <!-- Disability Policy -->
+                <div class="policy-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="policy-icon">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <h3>Disability Policy</h3>
+                    <p>Inclusive policies ensuring accessibility and equal opportunities for persons with disabilities in all our initiatives.</p>
+                    <div class="policy-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Accessibility Standards</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Inclusive Programs</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Reasonable Accommodation</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="openPolicyModal('disability')">View Details</button>
+                </div>
+
+                <!-- Financial Policy -->
+                <div class="policy-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="policy-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Financial Policy</h3>
+                    <p>Transparent financial management and accountability measures ensuring proper utilization of resources and funds.</p>
+                    <div class="policy-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Budget Management</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Expense Tracking</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Financial Reporting</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="openPolicyModal('financial')">View Details</button>
+                </div>
+
+                <!-- Audit Policy -->
+                <div class="policy-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="policy-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>Audit Policy</h3>
+                    <p>Regular internal and external auditing procedures to ensure compliance, transparency, and accountability in operations.</p>
+                    <div class="policy-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Internal Audits</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>External Verification</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Compliance Monitoring</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="openPolicyModal('audit')">View Details</button>
+                </div>
+
+                <!-- Account Policy -->
+                <div class="policy-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="policy-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Account Policy</h3>
+                    <p>Systematic accounting procedures and financial record-keeping practices following standard accounting principles.</p>
+                    <div class="policy-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Record Keeping</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Financial Controls</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Documentation</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="openPolicyModal('account')">View Details</button>
+                </div>
+
+                <!-- Service Regulation -->
+                <div class="policy-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="policy-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Service Regulation</h3>
+                    <p>Guidelines for service delivery, quality standards, and beneficiary rights ensuring effective program implementation.</p>
+                    <div class="policy-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Service Standards</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Quality Assurance</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Grievance Redressal</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="openPolicyModal('service')">View Details</button>
+                </div>
+
+                <!-- POSH Committee -->
+                <div class="policy-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="policy-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>POSH Committee</h3>
+                    <p>Prevention of Sexual Harassment committee ensuring safe and respectful workplace environment for all employees.</p>
+                    <div class="policy-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Complaint Mechanism</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Investigation Process</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Awareness Programs</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" onclick="openPolicyModal('posh')">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Modal -->
+    <div id="policyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Policy Details</h3>
+                <button class="modal-close" onclick="closePolicyModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Yuva Vikas Samiti</span>
+                    </div>
+                    <p>Empowering communities through sustainable development and social justice since 2007.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Work</h4>
+                    <ul>
+                        <li><a href="#">Women Empowerment</a></li>
+                        <li><a href="#">Health Programs</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Livelihood</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9454309514</p>
+                        <p><i class="fas fa-envelope"></i> info@yuvavikas.org</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Kushinagar, UP</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yuva Vikas Samiti. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/policies.js"></script>
+</body>
+</html>

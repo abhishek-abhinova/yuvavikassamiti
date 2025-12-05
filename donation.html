@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Yuva Vikas Samiti</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/donation.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>Yuva Vikas Samiti</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="agencies.html" class="nav-link">Network</a></li>
+                <li><a href="policies.html" class="nav-link">Policies</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="donation.html" class="nav-link donate-btn active">Donate</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Make a Difference</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Your contribution can transform lives and build stronger communities</p>
+        </div>
+    </section>
+
+    <!-- Donation Impact -->
+    <section class="donation-impact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Your Impact</h2>
+                <p>See how your donation makes a real difference</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="impact-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>₹500</h3>
+                    <h4>Clean Water</h4>
+                    <p>Provides clean drinking water to a family for one month</p>
+                </div>
+                <div class="impact-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="impact-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>₹1,000</h3>
+                    <h4>Education</h4>
+                    <p>Sponsors a child's education for one month including books and supplies</p>
+                </div>
+                <div class="impact-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="impact-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>₹2,000</h3>
+                    <h4>Healthcare</h4>
+                    <p>Provides basic healthcare services to 10 families</p>
+                </div>
+                <div class="impact-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="impact-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>₹5,000</h3>
+                    <h4>Livelihood</h4>
+                    <p>Helps start a small business for a woman entrepreneur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Methods -->
+    <section class="donation-methods">
+        <div class="container">
+            <div class="donation-content">
+                <!-- Bank Details -->
+                <div class="donation-card" data-aos="fade-right">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h2>Bank Transfer</h2>
+                        <p>Direct bank transfer for secure donations</p>
+                    </div>
+                    <div class="bank-details">
+                        <div class="detail-item">
+                            <label>Bank Name</label>
+                            <div class="detail-value">
+                                <span>Union Bank of India</span>
+                                <button class="copy-btn" onclick="copyToClipboard('Union Bank of India')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <label>Account Number</label>
+                            <div class="detail-value">
+                                <span>215710100026519</span>
+                                <button class="copy-btn" onclick="copyToClipboard('215710100026519')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <label>IFSC Code</label>
+                            <div class="detail-value">
+                                <span>UBIN0821578</span>
+                                <button class="copy-btn" onclick="copyToClipboard('UBIN0821578')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <label>Account Holder</label>
+                            <div class="detail-value">
+                                <span>Yuva Vikas Samiti</span>
+                                <button class="copy-btn" onclick="copyToClipboard('Yuva Vikas Samiti')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Online Payment -->
+                <div class="donation-card" data-aos="fade-left">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h2>Online Payment</h2>
+                        <p>Quick and secure online donations</p>
+                    </div>
+                    
+                    <!-- Quick Amount Selection -->
+                    <div class="amount-selection">
+                        <h4>Select Amount</h4>
+                        <div class="amount-buttons">
+                            <button class="amount-btn" onclick="selectAmount(500)">₹500</button>
+                            <button class="amount-btn" onclick="selectAmount(1000)">₹1,000</button>
+                            <button class="amount-btn" onclick="selectAmount(2000)">₹2,000</button>
+                            <button class="amount-btn" onclick="selectAmount(5000)">₹5,000</button>
+                        </div>
+                        <div class="custom-amount">
+                            <input type="number" id="customAmount" placeholder="Enter custom amount" min="100">
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="payment-methods">
+                        <h4>Payment Options</h4>
+                        <div class="payment-options">
+                            <button class="payment-btn upi" onclick="showPaymentModal('upi')">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>UPI Payment</span>
+                            </button>
+                            <button class="payment-btn card" onclick="showPaymentModal('card')">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Card Payment</span>
+                            </button>
+                            <button class="payment-btn netbanking" onclick="showPaymentModal('netbanking')">
+                                <i class="fas fa-university"></i>
+                                <span>Net Banking</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- QR Code -->
+                    <div class="qr-section">
+                        <h4>Scan QR Code</h4>
+                        <div class="qr-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <p>UPI QR Code</p>
+                            <small>Scan with any UPI app</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Trusted & Verified</h2>
+                <p>Your donations are secure and tax-deductible</p>
+            </div>
+            <div class="badges-grid">
+                <div class="trust-badge" data-aos="flip-up" data-aos-delay="100">
+                    <div class="badge-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h4>12A Registration</h4>
+                    <p>Income Tax Exemption Certificate</p>
+                </div>
+                <div class="trust-badge" data-aos="flip-up" data-aos-delay="200">
+                    <div class="badge-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>80G Certification</h4>
+                    <p>Tax Deduction Benefits up to 50%</p>
+                </div>
+                <div class="trust-badge" data-aos="flip-up" data-aos-delay="300">
+                    <div class="badge-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Secure Payments</h4>
+                    <p>SSL Encrypted & Bank Grade Security</p>
+                </div>
+                <div class="trust-badge" data-aos="flip-up" data-aos-delay="400">
+                    <div class="badge-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h4>Tax Receipt</h4>
+                    <p>Instant 80G Tax Receipt via Email</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Ways to Help -->
+    <section class="other-ways">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Other Ways to Help</h2>
+                <p>Support our mission in different ways</p>
+            </div>
+            <div class="ways-grid">
+                <div class="way-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="way-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Volunteer</h3>
+                    <p>Join our team of dedicated volunteers and contribute your time and skills to make a direct impact.</p>
+                    <a href="contact.html" class="btn btn-outline">Join Us</a>
+                </div>
+                <div class="way-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="way-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partnership</h3>
+                    <p>Partner with us for CSR initiatives and create sustainable impact in communities together.</p>
+                    <a href="contact.html" class="btn btn-outline">Partner</a>
+                </div>
+                <div class="way-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="way-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Spread Awareness</h3>
+                    <p>Share our mission on social media and help us reach more people who can make a difference.</p>
+                    <a href="#" class="btn btn-outline">Share</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Payment</h3>
+                <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Yuva Vikas Samiti</span>
+                    </div>
+                    <p>Empowering communities through sustainable development and social justice since 2007.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Work</h4>
+                    <ul>
+                        <li><a href="#">Women Empowerment</a></li>
+                        <li><a href="#">Health Programs</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Livelihood</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9454309514</p>
+                        <p><i class="fas fa-envelope"></i> info@yuvavikas.org</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Kushinagar, UP</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yuva Vikas Samiti. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/donation.js"></script>
+</body>
+</html>

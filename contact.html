@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Yuva Vikas Samiti</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>Yuva Vikas Samiti</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="agencies.html" class="nav-link">Network</a></li>
+                <li><a href="policies.html" class="nav-link">Policies</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="donation.html" class="nav-link donate-btn">Donate</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Contact Us</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Get in touch with us for partnerships, support, or inquiries</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Form -->
+                <div class="contact-form-container" data-aos="fade-right">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="volunteer">Volunteer Opportunity</option>
+                                <option value="donation">Donation Related</option>
+                                <option value="project">Project Information</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Please describe your inquiry in detail..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-container" data-aos="fade-left">
+                    <h2>Get in Touch</h2>
+                    <p>We'd love to hear from you. Reach out to us for any inquiries, partnerships, or support.</p>
+                    
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4>Registered Office</h4>
+                            <p>Village & Post - Khaira Tola<br>
+                            Block - Captainganj<br>
+                            District - Kushinagar<br>
+                            Uttar Pradesh - 274301</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4>Administrative Office</h4>
+                            <p>Near Railway Station<br>
+                            Captainganj<br>
+                            Kushinagar, UP<br>
+                            Pin: 274301</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>Phone Numbers</h4>
+                            <p><strong>Primary:</strong> +91 9454309514<br>
+                            <strong>Secondary:</strong> +91 9598975008<br>
+                            <strong>Office:</strong> +91 5564-234567</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email Addresses</h4>
+                            <p><strong>General:</strong> info@yuvavikas.org<br>
+                            <strong>Projects:</strong> projects@yuvavikas.org<br>
+                            <strong>Partnerships:</strong> partnerships@yuvavikas.org</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>Office Hours</h4>
+                            <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                            <strong>Saturday:</strong> 9:00 AM - 2:00 PM<br>
+                            <strong>Sunday:</strong> Closed</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h4>Online Presence</h4>
+                            <p><strong>Website:</strong> www.yuvavikas.org<br>
+                            <strong>Social Media:</strong> Follow us on<br>
+                            Facebook, Twitter, Instagram</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="social-section">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link youtube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Find Us</h2>
+                <p>Visit our office or project locations</p>
+            </div>
+            <div class="map-container" data-aos="fade-up">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Interactive Map</h3>
+                    <p>Kushinagar, Uttar Pradesh</p>
+                    <p class="map-note">
+                        <i class="fas fa-info-circle"></i>
+                        For detailed directions, please contact us directly or use GPS coordinates: 26.7411° N, 83.8938° E
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact -->
+    <section class="quick-contact">
+        <div class="container">
+            <div class="quick-contact-content" data-aos="fade-up">
+                <h2>Need Immediate Assistance?</h2>
+                <p>For urgent matters or immediate assistance, please call us directly</p>
+                <div class="quick-contact-buttons">
+                    <a href="tel:+919454309514" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="mailto:info@yuvavikas.org" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                    <a href="https://wa.me/919454309514" class="btn btn-accent" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Yuva Vikas Samiti</span>
+                    </div>
+                    <p>Empowering communities through sustainable development and social justice since 2007.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Work</h4>
+                    <ul>
+                        <li><a href="#">Women Empowerment</a></li>
+                        <li><a href="#">Health Programs</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Livelihood</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9454309514</p>
+                        <p><i class="fas fa-envelope"></i> info@yuvavikas.org</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Kushinagar, UP</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yuva Vikas Samiti. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

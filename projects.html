@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Yuva Vikas Samiti</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>Yuva Vikas Samiti</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="agencies.html" class="nav-link">Network</a></li>
+                <li><a href="policies.html" class="nav-link">Policies</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="donation.html" class="nav-link donate-btn">Donate</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Our Projects</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Transforming lives through impactful community initiatives</p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-grid">
+                <!-- Jal Jeevan Mission -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/1a4b84/ffffff?text=Jal+Jeevan+Mission" alt="Jal Jeevan Mission">
+                        <div class="project-overlay">
+                            <button class="explore-btn" onclick="openProjectModal('jal-jeevan')">
+                                <i class="fas fa-eye"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3>Jal Jeevan Mission (ISA)</h3>
+                        <p>Ensuring safe drinking water access to rural households through sustainable water management systems.</p>
+                        <div class="project-tags">
+                            <span class="tag">Water</span>
+                            <span class="tag">Rural Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bal Gurukul -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/27ae60/ffffff?text=Bal+Gurukul" alt="Bal Gurukul">
+                        <div class="project-overlay">
+                            <button class="explore-btn" onclick="openProjectModal('bal-gurukul')">
+                                <i class="fas fa-eye"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Bal Gurukul</h3>
+                        <p>Quality education program for underprivileged children with focus on holistic development.</p>
+                        <div class="project-tags">
+                            <span class="tag">Education</span>
+                            <span class="tag">Children</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- S3 Swabhiman -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/f39c12/ffffff?text=S3+Swabhiman" alt="S3 Swabhiman">
+                        <div class="project-overlay">
+                            <button class="explore-btn" onclick="openProjectModal('s3-swabhiman')">
+                                <i class="fas fa-eye"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h3>S3 Swabhiman Project</h3>
+                        <p>Women empowerment through skill development and entrepreneurship opportunities.</p>
+                        <div class="project-tags">
+                            <span class="tag">Women Empowerment</span>
+                            <span class="tag">Skills</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nanhi Pahal -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/e74c3c/ffffff?text=Nanhi+Pahal" alt="Nanhi Pahal">
+                        <div class="project-overlay">
+                            <button class="explore-btn" onclick="openProjectModal('nanhi-pahal')">
+                                <i class="fas fa-eye"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3>Nanhi Pahal</h3>
+                        <p>Early childhood development program focusing on nutrition and education for young children.</p>
+                        <div class="project-tags">
+                            <span class="tag">Child Development</span>
+                            <span class="tag">Nutrition</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sui Dhaga Ji -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/9b59b6/ffffff?text=Sui+Dhaga+Ji" alt="Sui Dhaga Ji">
+                        <div class="project-overlay">
+                            <button class="explore-btn" onclick="openProjectModal('sui-dhaga')">
+                                <i class="fas fa-eye"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3>Sui Dhaga Ji</h3>
+                        <p>Traditional handicrafts and textile skills training for women's economic empowerment.</p>
+                        <div class="project-tags">
+                            <span class="tag">Handicrafts</span>
+                            <span class="tag">Livelihood</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saksham Financial Literacy -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/34495e/ffffff?text=Saksham+Financial" alt="Saksham Financial Literacy">
+                        <div class="project-overlay">
+                            <button class="explore-btn" onclick="openProjectModal('saksham-financial')">
+                                <i class="fas fa-eye"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>Saksham Financial Literacy</h3>
+                        <p>Financial education and digital banking awareness for rural communities.</p>
+                        <div class="project-tags">
+                            <span class="tag">Financial Literacy</span>
+                            <span class="tag">Digital Banking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popularisation of Science -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/16a085/ffffff?text=Science+Program" alt="Popularisation of Science">
+                        <div class="project-overlay">
+                            <button class="explore-btn" onclick="openProjectModal('science-program')">
+                                <i class="fas fa-eye"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Popularisation of Science</h3>
+                        <p>Science education and awareness programs to promote scientific thinking in communities.</p>
+                        <div class="project-tags">
+                            <span class="tag">Science Education</span>
+                            <span class="tag">Awareness</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NHDP Handicrafts -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/d35400/ffffff?text=NHDP+Handicrafts" alt="NHDP Handicrafts">
+                        <div class="project-overlay">
+                            <button class="explore-btn" onclick="openProjectModal('nhdp-handicrafts')">
+                                <i class="fas fa-eye"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>NHDP Handicrafts</h3>
+                        <p>National Handicrafts Development Program promoting traditional arts and crafts.</p>
+                        <div class="project-tags">
+                            <span class="tag">Handicrafts</span>
+                            <span class="tag">Traditional Arts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TB Awareness -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="900">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/c0392b/ffffff?text=TB+Awareness" alt="TB Awareness">
+                        <div class="project-overlay">
+                            <button class="explore-btn" onclick="openProjectModal('tb-awareness')">
+                                <i class="fas fa-eye"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-lungs"></i>
+                        </div>
+                        <h3>TB Awareness (Akshaya Project)</h3>
+                        <p>Tuberculosis prevention, awareness, and treatment support programs.</p>
+                        <div class="project-tags">
+                            <span class="tag">Health</span>
+                            <span class="tag">TB Prevention</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div id="modalContent">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Yuva Vikas Samiti</span>
+                    </div>
+                    <p>Empowering communities through sustainable development and social justice since 2007.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Work</h4>
+                    <ul>
+                        <li><a href="#">Women Empowerment</a></li>
+                        <li><a href="#">Health Programs</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Livelihood</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9454309514</p>
+                        <p><i class="fas fa-envelope"></i> info@yuvavikas.org</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Uttar Pradesh, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yuva Vikas Samiti. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>
