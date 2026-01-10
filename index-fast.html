@@ -5,101 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuva Vikas Samiti - Empowering Communities Since 2007</title>
     <meta name="description" content="Yuva Vikas Samiti - NGO empowering marginalized communities through health, education, and sustainable development programs since 2007.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#0f172a;overflow-x:hidden}
-        .loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#0f172a;display:flex;align-items:center;justify-content:center;z-index:9999}
-        .loader div{width:40px;height:40px;border:3px solid rgba(59,130,246,.3);border-top:3px solid #3b82f6;border-radius:50%;animation:spin 1s linear infinite}
+        body{font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1e293b;overflow-x:hidden}
+        .loader{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);display:flex;align-items:center;justify-content:center;z-index:9999}
+        .loader div{width:40px;height:40px;border:3px solid rgba(255,255,255,.3);border-top:3px solid white;border-radius:50%;animation:spin 1s linear infinite}
         @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-        .navbar{position:fixed;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:1000;box-shadow:0 1px 3px rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.05)}
-        .nav-container{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:80px}
-        .nav-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.6rem;color:#0f172a}
-        .nav-menu{display:flex;list-style:none;gap:40px;align-items:center}
-        .nav-link{text-decoration:none;color:#475569;font-weight:500;transition:all .3s;padding:8px 16px;border-radius:8px}
-        .nav-link:hover,.nav-link.active{color:#3b82f6;background:rgba(59,130,246,.1)}
+        .navbar{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;height:70px}
+        .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.5rem;color:#1a4b84}
+        .nav-menu{display:flex;list-style:none;gap:30px;align-items:center}
+        .nav-link{text-decoration:none;color:#1e293b;font-weight:500;transition:color .3s}
+        .nav-link:hover,.nav-link.active{color:#1a4b84}
         .hamburger{display:none;flex-direction:column;cursor:pointer}
-        .hamburger span{width:28px;height:3px;background:#0f172a;margin:4px 0;transition:.3s;border-radius:2px}
-        .hero{height:100vh;position:relative;overflow:hidden}
-        .slideshow-container{position:absolute;width:100%;height:100%;z-index:1}
-        .slide{position:absolute;width:100%;height:100%;opacity:0;transition:opacity 1.5s ease-in-out;background-size:cover;background-position:center}
-        .slide.active{opacity:1}
-        .slide1{background-image:url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')}
-        .slide2{background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')}
-        .slide3{background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')}
-        .slide4{background-image:url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')}
-        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,.4);z-index:2}
-        .hero-content{position:relative;z-index:3;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;max-width:900px;margin:0 auto;padding:0 24px}
-        .hero h1{font-size:4.5rem;font-weight:800;margin-bottom:24px;text-shadow:0 4px 8px rgba(0,0,0,.3);letter-spacing:-0.02em}
-        .hero p{font-size:1.4rem;margin-bottom:48px;opacity:.95;font-weight:400;max-width:600px}
-        .hero-buttons{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
-        .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;text-decoration:none;border-radius:12px;font-weight:600;transition:all .3s;border:none;cursor:pointer;font-size:1rem}
-        .btn-primary{background:#3b82f6;color:white;box-shadow:0 4px 14px rgba(59,130,246,.4)}
-        .btn-secondary{background:rgba(255,255,255,.1);color:white;border:2px solid rgba(255,255,255,.3);backdrop-filter:blur(10px)}
-        .btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.2)}
-        .btn-primary:hover{background:#2563eb;box-shadow:0 8px 25px rgba(59,130,246,.5)}
-        .hero-stats{display:flex;gap:60px;justify-content:center;flex-wrap:wrap}
-        .hero-stat{text-align:center;padding:20px;background:rgba(255,255,255,.1);border-radius:16px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}
-        .hero-stat-number{display:block;font-size:2.8rem;font-weight:800;margin-bottom:8px}
-        .hero-stat-label{display:block;font-size:1rem;opacity:.9;font-weight:500}
-        .slideshow-nav{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:4}
-        .nav-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .3s}
-        .nav-dot.active{background:white;transform:scale(1.2)}
-        .container{max-width:1400px;margin:0 auto;padding:0 24px}
-        .section{padding:100px 0}
-        .section-header{text-align:center;margin-bottom:80px}
-        .section-header h2{font-size:3.5rem;color:#0f172a;margin-bottom:20px;font-weight:800;letter-spacing:-0.02em}
-        .section-header p{font-size:1.3rem;color:#64748b;max-width:600px;margin:0 auto}
-        .mv-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(450px,1fr));gap:48px}
-        .mv-card{background:white;border-radius:24px;padding:48px;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.05);transition:all .3s}
-        .mv-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.1)}
-        .mv-icon{width:88px;height:88px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:2.2rem;box-shadow:0 8px 20px rgba(59,130,246,.3)}
-        .mv-card h3{font-size:2rem;color:#0f172a;margin-bottom:20px;font-weight:700}
-        .mv-card p{color:#64748b;font-size:1.1rem;line-height:1.7}
-        .issues-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
-        .issue-card{background:white;border-radius:20px;padding:32px 24px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.05);transition:all .3s}
-        .issue-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.1)}
-        .issue-icon{width:68px;height:68px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.6rem;box-shadow:0 4px 12px rgba(59,130,246,.3)}
-        .issue-card h4{color:#0f172a;font-size:1.2rem;font-weight:600}
-        .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:40px}
-        .project-card{background:white;border-radius:24px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.05);transition:all .3s}
-        .project-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.1)}
-        .project-image{height:220px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;font-weight:700}
-        .project-content{padding:36px}
-        .project-content h4{color:#0f172a;font-size:1.6rem;margin-bottom:16px;font-weight:700}
-        .project-content p{color:#64748b;margin-bottom:24px;line-height:1.6}
-        .stats{background:linear-gradient(135deg,#0f172a,#1e293b);color:white;text-align:center}
-        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:48px}
-        .stat-item{padding:24px}
-        .stat-number{font-size:3.5rem;font-weight:800;margin-bottom:12px}
-        .stat-label{font-size:1.3rem;opacity:.9;font-weight:500}
-        .footer{background:#0f172a;color:white;padding:80px 0 40px}
-        .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;margin-bottom:48px}
-        .footer-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.6rem;margin-bottom:24px}
-        .footer-section h4{color:#3b82f6;margin-bottom:24px;font-size:1.4rem;font-weight:700}
+        .hamburger span{width:25px;height:3px;background:#1a4b84;margin:3px 0;transition:.3s;border-radius:2px}
+        .hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);color:white;text-align:center}
+        .hero-content{max-width:800px;padding:0 20px}
+        .hero h1{font-size:4rem;font-weight:700;margin-bottom:20px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}
+        .hero p{font-size:1.5rem;margin-bottom:40px;opacity:.9}
+        .hero-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+        .btn{display:inline-block;padding:16px 32px;text-decoration:none;border-radius:50px;font-weight:600;transition:all .3s;border:none;cursor:pointer;font-size:1rem}
+        .btn-primary{background:rgba(255,255,255,.2);color:white;border:2px solid white}
+        .btn-secondary{background:transparent;color:white;border:2px solid white}
+        .btn:hover{transform:translateY(-2px);background:white;color:#667eea}
+        .hero-stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+        .hero-stat{text-align:center}
+        .hero-stat-number{display:block;font-size:2.5rem;font-weight:700}
+        .hero-stat-label{display:block;font-size:1rem;opacity:.9;margin-top:5px}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .section{padding:80px 0}
+        .section-header{text-align:center;margin-bottom:60px}
+        .section-header h2{font-size:3rem;color:#1a4b84;margin-bottom:15px}
+        .section-header p{font-size:1.2rem;color:#64748b}
+        .mv-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:40px}
+        .mv-card{background:white;border-radius:20px;padding:40px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:transform .3s}
+        .mv-card:hover{transform:translateY(-10px)}
+        .mv-icon{width:80px;height:80px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:2rem}
+        .mv-card h3{font-size:1.8rem;color:#1a4b84;margin-bottom:15px}
+        .issues-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px}
+        .issue-card{background:white;border-radius:15px;padding:30px 20px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.1);transition:transform .3s}
+        .issue-card:hover{transform:translateY(-5px)}
+        .issue-icon{width:60px;height:60px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;font-size:1.5rem}
+        .issue-card h4{color:#1a4b84;font-size:1.1rem}
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+        .project-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:transform .3s}
+        .project-card:hover{transform:translateY(-10px)}
+        .project-image{height:200px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:white;font-size:1.2rem;font-weight:600}
+        .project-content{padding:30px}
+        .project-content h4{color:#1a4b84;font-size:1.5rem;margin-bottom:15px}
+        .stats{background:linear-gradient(135deg,#667eea,#764ba2);color:white;text-align:center}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px}
+        .stat-number{font-size:3rem;font-weight:700;margin-bottom:10px}
+        .stat-label{font-size:1.2rem;opacity:.9}
+        .footer{background:#1e293b;color:white;padding:60px 0 30px}
+        .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px}
+        .footer-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.5rem;margin-bottom:20px}
+        .footer-section h4{color:#27ae60;margin-bottom:20px;font-size:1.3rem}
         .footer-section ul{list-style:none}
-        .footer-section ul li{margin-bottom:12px}
-        .footer-section ul li a{color:#94a3b8;text-decoration:none;transition:color .3s}
-        .footer-section ul li a:hover{color:#3b82f6}
-        .footer-section p{color:#94a3b8;line-height:1.6}
-        .footer-bottom{text-align:center;padding-top:32px;border-top:1px solid #334155;color:#94a3b8}
+        .footer-section ul li{margin-bottom:10px}
+        .footer-section ul li a{color:#bdc3c7;text-decoration:none;transition:color .3s}
+        .footer-section ul li a:hover{color:#27ae60}
+        .footer-bottom{text-align:center;padding-top:20px;border-top:1px solid #34495e;color:#bdc3c7}
         @media (max-width:768px){
             .hamburger{display:flex}
-            .nav-menu{position:fixed;left:-100%;top:80px;flex-direction:column;background:rgba(255,255,255,.98);width:100%;text-align:center;transition:.3s;padding:32px 0;backdrop-filter:blur(20px)}
+            .nav-menu{position:fixed;left:-100%;top:70px;flex-direction:column;background:rgba(255,255,255,.95);width:100%;text-align:center;transition:.3s;padding:20px 0}
             .nav-menu.active{left:0}
-            .hero h1{font-size:3rem}
+            .hero h1{font-size:2.5rem}
             .hero p{font-size:1.2rem}
-            .hero-buttons{flex-direction:column;align-items:center;gap:20px}
-            .btn{width:240px}
-            .hero-stats{gap:32px;flex-direction:column}
-            .hero-stat{padding:16px 24px}
-            .hero-stat-number{font-size:2.2rem}
-            .section-header h2{font-size:2.5rem}
+            .hero-buttons{flex-direction:column;align-items:center;gap:15px}
+            .btn{width:200px}
+            .hero-stats{gap:25px}
+            .hero-stat-number{font-size:2rem}
             .mv-cards{grid-template-columns:1fr}
-            .issues-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+            .issues-grid{grid-template-columns:repeat(2,1fr);gap:20px}
             .projects-grid{grid-template-columns:1fr}
             .stats-grid{grid-template-columns:repeat(2,1fr)}
-            .slideshow-nav{bottom:20px}
         }
         .hidden{display:none}
     </style>
@@ -134,20 +114,13 @@
     </nav>
 
     <section class="hero">
-        <div class="slideshow-container">
-            <div class="slide slide1 active"></div>
-            <div class="slide slide2"></div>
-            <div class="slide slide3"></div>
-            <div class="slide slide4"></div>
-        </div>
-        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Yuva Vikas Samiti</h1>
             <p>Empowering Youth, Women & Communities Since 2007</p>
             <div class="hero-buttons">
-                <a href="about.html" class="btn btn-primary">✨ Know More</a>
-                <a href="projects.html" class="btn btn-secondary">🚀 Our Projects</a>
-                <a href="donation.html" class="btn btn-primary">❤️ Donate Now</a>
+                <a href="about.html" class="btn btn-primary">Know More</a>
+                <a href="projects.html" class="btn btn-secondary">Our Projects</a>
+                <a href="donation.html" class="btn btn-primary">Donate Now</a>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat">
@@ -163,12 +136,6 @@
                     <span class="hero-stat-label">Lives Impacted</span>
                 </div>
             </div>
-        </div>
-        <div class="slideshow-nav">
-            <div class="nav-dot active" data-slide="0"></div>
-            <div class="nav-dot" data-slide="1"></div>
-            <div class="nav-dot" data-slide="2"></div>
-            <div class="nav-dot" data-slide="3"></div>
         </div>
     </section>
 
@@ -264,7 +231,7 @@
                     <div class="project-content">
                         <h4>Jal Jeevan Mission (ISA)</h4>
                         <p>YVS is working in 2 Districts (Ambedkar Nagar & Balrampur) of Uttar Pradesh as Implementation Support Agency under Jal Jeevan Mission.</p>
-                        <a href="projects.html" class="btn btn-primary">📖 Read More</a>
+                        <a href="projects.html" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -272,7 +239,7 @@
                     <div class="project-content">
                         <h4>Bal Gurukul Project</h4>
                         <p>Implementing Bal Gurukul Project in 7 Districts of 2 States (Uttar Pradesh and Jharkhand) for quality education and child development.</p>
-                        <a href="projects.html" class="btn btn-primary">📖 Read More</a>
+                        <a href="projects.html" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -280,7 +247,7 @@
                     <div class="project-content">
                         <h4>S3 - Sarva Sakhi Swabhiman</h4>
                         <p>Empowering women through skill development, tailoring training, and creating sustainable livelihood opportunities in rural communities.</p>
-                        <a href="projects.html" class="btn btn-primary">📖 Read More</a>
+                        <a href="projects.html" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
@@ -362,31 +329,6 @@
         document.getElementById('hamburger').addEventListener('click', function() {
             this.classList.toggle('active');
             document.getElementById('navMenu').classList.toggle('active');
-        });
-        
-        // Slideshow functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.nav-dot');
-        
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-        
-        // Auto slideshow
-        setInterval(nextSlide, 5000);
-        
-        // Dot navigation
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => showSlide(index));
         });
         
         // Smooth scroll
