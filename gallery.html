@@ -4,29 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Yuva Vikas Samiti</title>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/gallery.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1e293b}
+        .navbar{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;height:70px}
+        .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.5rem;color:#1a4b84}
+        .nav-menu{display:flex;list-style:none;gap:30px;align-items:center}
+        .nav-link{text-decoration:none;color:#1e293b;font-weight:500;transition:color .3s}
+        .nav-link:hover,.nav-link.active{color:#1a4b84}
+        .hamburger{display:none;flex-direction:column;cursor:pointer}
+        .hamburger span{width:25px;height:3px;background:#1a4b84;margin:3px 0;transition:.3s;border-radius:2px}
+        .hero-small{height:40vh;background:linear-gradient(135deg,rgba(102,126,234,0.9),rgba(118,75,162,0.9)),url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;display:flex;align-items:center;justify-content:center;color:white;text-align:center}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .section{padding:80px 0}
+        .filter-tabs{display:flex;justify-content:center;gap:15px;margin-bottom:40px;flex-wrap:wrap}
+        .filter-tab{padding:12px 24px;background:white;border:2px solid #667eea;color:#667eea;border-radius:25px;cursor:pointer;transition:all .3s;font-weight:600;font-size:.9rem}
+        .filter-tab.active,.filter-tab:hover{background:#667eea;color:white}
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+        .gallery-item{position:relative;overflow:hidden;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.1);transition:transform .3s;cursor:pointer;aspect-ratio:4/3}
+        .gallery-item:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+        .gallery-item:hover img{transform:scale(1.05)}
+        .gallery-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.8));color:white;padding:20px;transform:translateY(100%);transition:transform .3s}
+        .gallery-item:hover .gallery-overlay{transform:translateY(0)}
+        .gallery-title{font-weight:600;margin-bottom:5px}
+        .gallery-category{font-size:.8rem;opacity:.8}
+        .lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:10000}
+        .lightbox-content{position:relative;max-width:90%;max-height:90%;display:flex;align-items:center;justify-content:center}
+        .lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+        .lightbox-close{position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:2rem;cursor:pointer;padding:10px}
+        .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.2);border:none;color:white;font-size:2rem;cursor:pointer;padding:15px;border-radius:50%;transition:background .3s}
+        .lightbox-nav:hover{background:rgba(255,255,255,.3)}
+        .lightbox-prev{left:-60px}
+        .lightbox-next{right:-60px}
+        .lightbox-info{position:absolute;bottom:-60px;left:0;right:0;text-align:center;color:white}
+        .stats-section{background:#f8fafc;border-radius:20px;padding:40px;margin-bottom:40px}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center}
+        .stat-item{background:white;border-radius:15px;padding:30px;box-shadow:0 5px 20px rgba(0,0,0,.1)}
+        .stat-number{font-size:2.5rem;font-weight:700;color:#667eea;margin-bottom:10px}
+        .stat-label{color:#64748b}
+        .footer{background:#1e293b;color:white;padding:60px 0 30px}
+        .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px}
+        .footer-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.5rem;margin-bottom:20px}
+        .footer-section h4{color:#27ae60;margin-bottom:20px;font-size:1.3rem}
+        .footer-section ul{list-style:none}
+        .footer-section ul li{margin-bottom:10px}
+        .footer-section ul li a{color:#bdc3c7;text-decoration:none;transition:color .3s}
+        .footer-section ul li a:hover{color:#27ae60}
+        .footer-bottom{text-align:center;padding-top:20px;border-top:1px solid #34495e;color:#bdc3c7}
+        @media (max-width:768px){
+            .hamburger{display:flex}
+            .nav-menu{position:fixed;left:-100%;top:70px;flex-direction:column;background:rgba(255,255,255,.95);width:100%;text-align:center;transition:.3s;padding:20px 0}
+            .nav-menu.active{left:0}
+            .gallery-grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px}
+            .filter-tabs{gap:10px}
+            .filter-tab{padding:8px 16px;font-size:.8rem}
+            .lightbox-nav{display:none}
+            .stats-grid{grid-template-columns:repeat(2,1fr)}
+        }
+        .loading{display:none;text-align:center;padding:40px;color:#667eea}
+        .loading.show{display:block}
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <i class="fas fa-hands-helping"></i>
+                <span>🤝</span>
                 <span>Yuva Vikas Samiti</span>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
@@ -34,9 +82,9 @@
                 <li><a href="policies.html" class="nav-link">Policies</a></li>
                 <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li><a href="donation.html" class="nav-link donate-btn">Donate</a></li>
+                <li><a href="donation.html" class="nav-link">Donate</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -44,185 +92,272 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <section class="hero-small">
         <div class="container">
-            <h1 data-aos="fade-up">Our Gallery</h1>
-            <p data-aos="fade-up" data-aos-delay="200">Capturing moments of impact and transformation</p>
+            <h1 style="font-size:3rem;margin-bottom:20px">Our Gallery</h1>
+            <p style="font-size:1.2rem">Capturing moments of impact and community transformation</p>
         </div>
     </section>
 
-    <!-- Gallery Filters -->
-    <section class="gallery-filters">
+    <section class="section">
         <div class="container">
-            <div class="filter-buttons" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="women-empowerment">Women Empowerment</button>
-                <button class="filter-btn" data-filter="education">Education</button>
-                <button class="filter-btn" data-filter="health">Health</button>
-                <button class="filter-btn" data-filter="environment">Environment</button>
-                <button class="filter-btn" data-filter="skills">Skills Training</button>
-                <button class="filter-btn" data-filter="events">Events</button>
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Photos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">18+</div>
+                        <div class="stat-label">Years Documented</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Events Covered</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Gallery Grid -->
-    <section class="gallery-section">
-        <div class="container">
-            <div class="gallery-grid">
+            <div class="filter-tabs">
+                <div class="filter-tab active" data-filter="all">All Photos</div>
+                <div class="filter-tab" data-filter="agriculture">Agriculture</div>
+                <div class="filter-tab" data-filter="water">Water Mission</div>
+                <div class="filter-tab" data-filter="women">Women Empowerment</div>
+                <div class="filter-tab" data-filter="education">Education</div>
+                <div class="filter-tab" data-filter="health">Health Programs</div>
+                <div class="filter-tab" data-filter="environment">Environment</div>
+                <div class="filter-tab" data-filter="cultural">Cultural Events</div>
+                <div class="filter-tab" data-filter="relief">Relief Work</div>
+            </div>
+
+            <div class="loading" id="loading">
+                <div style="font-size:2rem;margin-bottom:20px">📸</div>
+                <p>Loading images...</p>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Agriculture Branding -->
+                <div class="gallery-item" data-category="agriculture">
+                    <img src="images/agriculture branding/IMG-20260131-WA0031.jpg" alt="Agriculture Program" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Agriculture Development</div>
+                        <div class="gallery-category">Agriculture Programs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="agriculture">
+                    <img src="images/agriculture branding/IMG-20260131-WA0032.jpg" alt="Farmer Training" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Farmer Training Session</div>
+                        <div class="gallery-category">Agriculture Programs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="agriculture">
+                    <img src="images/agriculture branding/IMG-20260131-WA0033.jpg" alt="Crop Development" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Sustainable Farming</div>
+                        <div class="gallery-category">Agriculture Programs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="agriculture">
+                    <img src="images/agriculture branding/IMG-20260131-WA0034.jpg" alt="Agricultural Workshop" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Agricultural Workshop</div>
+                        <div class="gallery-category">Agriculture Programs</div>
+                    </div>
+                </div>
+
+                <!-- Water Mission -->
+                <div class="gallery-item" data-category="water">
+                    <img src="images/water mission/IMG-20260131-WA0091.jpg" alt="Jal Jeevan Mission" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Jal Jeevan Mission</div>
+                        <div class="gallery-category">Water & Sanitation</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="water">
+                    <img src="images/water mission/IMG-20260131-WA0092.jpg" alt="Water Infrastructure" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Water Infrastructure</div>
+                        <div class="gallery-category">Water & Sanitation</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="water">
+                    <img src="images/water mission/IMG-20260131-WA0093.jpg" alt="Clean Water Access" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Clean Water Access</div>
+                        <div class="gallery-category">Water & Sanitation</div>
+                    </div>
+                </div>
+
                 <!-- Women Empowerment -->
-                <div class="gallery-item" data-category="women-empowerment" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/e74c3c/ffffff?text=Women+Empowerment+1" alt="Women Empowerment Program">
+                <div class="gallery-item" data-category="women">
+                    <img src="images/women/IMG-20260131-WA0060.jpg" alt="Women Skill Training" loading="lazy">
                     <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Women Empowerment Workshop</h4>
-                            <p>Skill development training for rural women</p>
-                            <div class="gallery-category">Women Empowerment</div>
-                        </div>
+                        <div class="gallery-title">Skill Development Training</div>
+                        <div class="gallery-category">Women Empowerment</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="women">
+                    <img src="images/women/IMG-20260131-WA0061.jpg" alt="Tailoring Training" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Tailoring Training</div>
+                        <div class="gallery-category">Women Empowerment</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="women">
+                    <img src="images/women/IMG-20260131-WA0062.jpg" alt="Women Workshop" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Women's Workshop</div>
+                        <div class="gallery-category">Women Empowerment</div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="education" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/27ae60/ffffff?text=Education+1" alt="Education Program">
+                <!-- Women's Day -->
+                <div class="gallery-item" data-category="women">
+                    <img src="images/woman day/IMG-20260131-WA0119.jpg" alt="Women's Day Celebration" loading="lazy">
                     <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Bal Gurukul Classes</h4>
-                            <p>Quality education for underprivileged children</p>
-                            <div class="gallery-category">Education</div>
-                        </div>
+                        <div class="gallery-title">Women's Day Celebration</div>
+                        <div class="gallery-category">Women Empowerment</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="women">
+                    <img src="images/woman day/IMG-20260131-WA0120.jpg" alt="Women's Day Event" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Women's Day Event</div>
+                        <div class="gallery-category">Women Empowerment</div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="health" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/3498db/ffffff?text=Health+1" alt="Health Program">
+                <!-- Cultural Events -->
+                <div class="gallery-item" data-category="cultural">
+                    <img src="images/cultural fest/IMG-20260131-WA0048.jpg" alt="Cultural Festival" loading="lazy">
                     <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Health Checkup Camp</h4>
-                            <p>Free medical checkup for rural communities</p>
-                            <div class="gallery-category">Health</div>
-                        </div>
+                        <div class="gallery-title">Cultural Festival</div>
+                        <div class="gallery-category">Cultural Events</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cultural">
+                    <img src="images/cultural fest/IMG-20260131-WA0049.jpg" alt="Community Celebration" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Community Celebration</div>
+                        <div class="gallery-category">Cultural Events</div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="women-empowerment" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/9b59b6/ffffff?text=Women+Empowerment+2" alt="Women Training">
+                <!-- Education Programs -->
+                <div class="gallery-item" data-category="education">
+                    <img src="images/science fair/IMG-20260131-WA0135.jpg" alt="Science Fair" loading="lazy">
                     <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Handicraft Training</h4>
-                            <p>Traditional craft skills for women</p>
-                            <div class="gallery-category">Women Empowerment</div>
-                        </div>
+                        <div class="gallery-title">Science Fair</div>
+                        <div class="gallery-category">Education Programs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="education">
+                    <img src="images/science fair/IMG-20260131-WA0136.jpg" alt="Student Exhibition" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Student Exhibition</div>
+                        <div class="gallery-category">Education Programs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="education">
+                    <img src="images/poster painting competition/IMG-20260131-WA0056.jpg" alt="Poster Competition" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Poster Painting Competition</div>
+                        <div class="gallery-category">Education Programs</div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="environment" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/2ecc71/ffffff?text=Environment+1" alt="Environment Program">
+                <!-- Environment Programs -->
+                <div class="gallery-item" data-category="environment">
+                    <img src="images/world environment Day/IMG-20260131-WA0075.jpg" alt="Environment Day" loading="lazy">
                     <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Tree Plantation Drive</h4>
-                            <p>Community environmental conservation</p>
-                            <div class="gallery-category">Environment</div>
-                        </div>
+                        <div class="gallery-title">World Environment Day</div>
+                        <div class="gallery-category">Environment Programs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="environment">
+                    <img src="images/world environment Day/IMG-20260131-WA0076.jpg" alt="Tree Plantation" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Tree Plantation Drive</div>
+                        <div class="gallery-category">Environment Programs</div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="skills" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/f39c12/ffffff?text=Skills+1" alt="Skills Training">
+                <!-- Relief Work -->
+                <div class="gallery-item" data-category="relief">
+                    <img src="images/dry ration and hygiene kit/IMG-20260131-WA0109.jpg" alt="Relief Distribution" loading="lazy">
                     <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Digital Literacy Program</h4>
-                            <p>Computer and digital skills training</p>
-                            <div class="gallery-category">Skills Training</div>
-                        </div>
+                        <div class="gallery-title">Relief Distribution</div>
+                        <div class="gallery-category">Relief Work</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="relief">
+                    <img src="images/dry ration and hygiene kit/IMG-20260131-WA0110.jpg" alt="Hygiene Kit Distribution" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Hygiene Kit Distribution</div>
+                        <div class="gallery-category">Relief Work</div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="education" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/1abc9c/ffffff?text=Education+2" alt="Science Education">
+                <!-- Mission Photos -->
+                <div class="gallery-item" data-category="health">
+                    <img src="images/mission/IMG-20260131-WA0096.jpg" alt="Health Mission" loading="lazy">
                     <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Science Exhibition</h4>
-                            <p>Promoting scientific thinking in schools</p>
-                            <div class="gallery-category">Education</div>
-                        </div>
+                        <div class="gallery-title">Health Mission</div>
+                        <div class="gallery-category">Health Programs</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="health">
+                    <img src="images/mission/IMG-20260131-WA0097.jpg" alt="Community Health" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Community Health Program</div>
+                        <div class="gallery-category">Health Programs</div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="events" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/e67e22/ffffff?text=Events+1" alt="Community Event">
+                <!-- General NGO Photos -->
+                <div class="gallery-item" data-category="all">
+                    <img src="images/ngo photos all/IMG-20260131-WA0142.jpg" alt="NGO Activities" loading="lazy">
                     <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Annual Community Meet</h4>
-                            <p>Celebrating achievements and planning ahead</p>
-                            <div class="gallery-category">Events</div>
-                        </div>
+                        <div class="gallery-title">Community Outreach</div>
+                        <div class="gallery-category">General Activities</div>
                     </div>
                 </div>
-
-                <div class="gallery-item" data-category="health" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/c0392b/ffffff?text=Health+2" alt="TB Awareness">
+                <div class="gallery-item" data-category="all">
+                    <img src="images/ngo photos all/IMG-20260131-WA0143.jpg" alt="Field Work" loading="lazy">
                     <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>TB Awareness Campaign</h4>
-                            <p>Community health education program</p>
-                            <div class="gallery-category">Health</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="women-empowerment" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/8e44ad/ffffff?text=Women+Empowerment+3" alt="Women Leadership">
-                    <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Women Leadership Training</h4>
-                            <p>Building confident women leaders</p>
-                            <div class="gallery-category">Women Empowerment</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="skills" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/d35400/ffffff?text=Skills+2" alt="Vocational Training">
-                    <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Vocational Training Center</h4>
-                            <p>Technical skills for employment</p>
-                            <div class="gallery-category">Skills Training</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="environment" data-aos="fade-up">
-                    <img src="https://via.placeholder.com/400x300/16a085/ffffff?text=Environment+2" alt="Water Conservation">
-                    <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <h4>Water Conservation Project</h4>
-                            <p>Rainwater harvesting initiative</p>
-                            <div class="gallery-category">Environment</div>
-                        </div>
+                        <div class="gallery-title">Field Work</div>
+                        <div class="gallery-category">General Activities</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+            <img id="lightboxImg" src="" alt="">
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+            <div class="lightbox-info" id="lightboxInfo"></div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <i class="fas fa-hands-helping"></i>
+                        <span>🤝</span>
                         <span>Yuva Vikas Samiti</span>
                     </div>
                     <p>Empowering communities through sustainable development and social justice since 2007.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -244,22 +379,143 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact Info</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone"></i> +91 9454309514</p>
-                        <p><i class="fas fa-envelope"></i> info@yuvavikas.org</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Kushinagar, UP</p>
-                    </div>
+                    <p>📞 +91 9598975008</p>
+                    <p>✉️ yvsngo@gmail.com</p>
+                    <p>🌐 www.yvsindia.org</p>
+                    <p>📍 Village Tharauli, Post Gaura Upadhyaya, District Basti (U.P.) 272124</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Yuva Vikas Samiti. All rights reserved.</p>
+                <p>&copy; 2025 Yuva Vikas Samiti. All rights reserved. | Reg. No: 831/2007-2008 | PAN: AAAAY0877A</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/gallery.js"></script>
+    <script>
+        // Mobile menu
+        document.getElementById('hamburger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                
+                // Update active tab
+                filterTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxInfo = document.getElementById('lightboxInfo');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        
+        let currentImageIndex = 0;
+        let visibleImages = [];
+
+        function updateVisibleImages() {
+            visibleImages = Array.from(document.querySelectorAll('.gallery-item')).filter(item => 
+                item.style.display !== 'none'
+            );
+        }
+
+        function openLightbox(index) {
+            updateVisibleImages();
+            currentImageIndex = index;
+            const item = visibleImages[currentImageIndex];
+            const img = item.querySelector('img');
+            const title = item.querySelector('.gallery-title').textContent;
+            const category = item.querySelector('.gallery-category').textContent;
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxInfo.innerHTML = `<strong>${title}</strong><br>${category}`;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function nextImage() {
+            updateVisibleImages();
+            currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+            openLightbox(currentImageIndex);
+        }
+
+        function prevImage() {
+            updateVisibleImages();
+            currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+            openLightbox(currentImageIndex);
+        }
+
+        // Add click events to gallery items
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const allItems = Array.from(galleryItems);
+                const visibleIndex = Array.from(document.querySelectorAll('.gallery-item')).filter(i => 
+                    i.style.display !== 'none'
+                ).indexOf(item);
+                openLightbox(visibleIndex);
+            });
+        });
+
+        // Lightbox controls
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', nextImage);
+        lightboxPrev.addEventListener('click', prevImage);
+
+        // Close lightbox on background click
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+        });
+
+        // Lazy loading for better performance
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.src;
+                    img.classList.remove('lazy');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+    </script>
 </body>
 </html>
